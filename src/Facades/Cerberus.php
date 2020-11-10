@@ -5,8 +5,7 @@ namespace Emodyz\Cerberus\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class Cerberus
- * @package Emodyz\Cerberus\Facades
+ * Class Cerberus.
  * @method static \Illuminate\Support\Collection config(null|string $key)
  *
  * @see \Emodyz\Cerberus\Cerberus

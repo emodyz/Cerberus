@@ -7,7 +7,6 @@ use Illuminate\Contracts\Auth\Access\Gate;
 
 class AuthorizationRegistrar
 {
-
     // TODO: cache everything
 
     /**

@@ -3,7 +3,6 @@
 namespace Emodyz\Cerberus\Traits;
 
 use Emodyz\Cerberus\Facades\Cerberus;
-use Illuminate\Database\Eloquent\Model;
 
 trait HasAuthorizations
 {
@@ -13,7 +12,7 @@ trait HasAuthorizations
 
         $role = $this->getAttribute('role');
 
-        $can = Cerberus::config('roles.'. $role .'.can');
+        $can = Cerberus::config('roles.'.$role.'.can');
 
         return $can->contains($action) || $can->contains('*');
     }
