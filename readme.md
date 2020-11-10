@@ -52,6 +52,6 @@ license. Please see the [license file](license.md) for more information.
 [link-packagist]: https://packagist.org/packages/emodyz/cerberus
 [link-downloads]: https://packagist.org/packages/emodyz/cerberus
 [link-travis]: https://travis-ci.org/emodyz/cerberus
-[link-styleci]: https://styleci.io/repos/12345678
+[link-styleci]: https://styleci.io/repos/310239506
 [link-author]: https://github.com/emodyz
 [link-contributors]: ../../contributors
