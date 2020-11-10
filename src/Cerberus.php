@@ -11,8 +11,8 @@ class Cerberus
                 return collect(config('cerberus.roles'));
             case 'authorizations':
                 return collect(config('cerberus.authorizations'));
-            case !null:
-                return collect(config('cerberus.' . $key));
+            case ! null:
+                return collect(config('cerberus.'.$key));
             default:
                 return collect(config('cerberus'));
         }

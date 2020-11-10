@@ -5,22 +5,22 @@ return [
         'owner' => [
             'displayName' => 'Owner',
             'can' => [
-                '*'
-            ]
+                '*',
+            ],
         ],
         'admin' => [
             'displayName' => 'Administrator',
-            'can' => []
+            'can' => [],
         ],
         'default' => [
             'displayName' => 'User',
-            'can' => []
-        ]
+            'can' => [],
+        ],
     ],
     'authorizations' => [
         [
             'slug' => '*',
-            'description' => 'a user can do everything'
+            'description' => 'a user can do everything',
         ],
-    ]
+    ],
 ];

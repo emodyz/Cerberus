@@ -19,12 +19,10 @@ class CheckAuthorization
      */
     public function handle(Request $request, Closure $next, string $ability)
     {
-
-        if (!$request->user()->can($ability)) {
+        if (! $request->user()->can($ability)) {
             throw new AuthorizationException();
         }
 
         return $next($request);
     }
-
 }
