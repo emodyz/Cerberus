@@ -15,6 +15,11 @@ Via Composer
 $ composer require emodyz/cerberus
 ```
 
+Publish the requied files from Emodyz\Cerberus\CerberusServiceProvider
+``` bash
+$ php artisan vendor:publish
+```
+
 ## Usage
 
 ## Change log
