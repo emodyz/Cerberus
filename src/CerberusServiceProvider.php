@@ -2,8 +2,7 @@
 
 namespace Emodyz\Cerberus;
 
-use App\Http\Middleware\emodyz\cerberus\CheckAuthorization;
-use App\Http\Middleware\emodyz\cerberus\CheckRole;
+use Emodyz\Cerberus\Http\Middleware\CheckRole;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
@@ -22,7 +21,8 @@ class CerberusServiceProvider extends ServiceProvider
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'emodyz');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'emodyz');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -38,7 +38,6 @@ class CerberusServiceProvider extends ServiceProvider
         // Middlewares
         $router = $this->app->make(Router::class);
         $router->aliasMiddleware('cerberus-role', CheckRole::class);
-        $router->aliasMiddleware('cerberus-can', CheckAuthorization::class);
     }
 
     /**
@@ -63,7 +62,7 @@ class CerberusServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return ['cerberus'];
     }
@@ -86,9 +85,9 @@ class CerberusServiceProvider extends ServiceProvider
         ], 'cerberus-migrations');
 
         // Publishing the migration files.
-        $this->publishes([
-            __DIR__.'/../app/Http/Middleware' => base_path('app/Http/Middleware/emodyz/cerberus'),
-        ], 'cerberus-middlewares');
+        /*$this->publishes([
+            __DIR__ . '/../app/Http/Middleware' => base_path('app/Http/Middleware/emodyz/cerberus'),
+        ], 'cerberus-middlewares');*/
 
         // Publishing the views.
         /*$this->publishes([
