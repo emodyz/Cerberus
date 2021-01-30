@@ -15,11 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::name('api.cerberus')->prefix('api/cerberus')->middleware('api')->group(function () {
-
     Route::prefix('authorizations')->name('.authorizations')->group(function () {
         Route::get('/', [CerberusController::class, 'getAuthorizations']);
         Route::get('check/{ability}', [CerberusController::class, 'checkAuthorization'])->name('.check');
     });
-
 });
-

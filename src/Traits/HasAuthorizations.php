@@ -16,7 +16,6 @@ trait HasAuthorizations
         return $can->contains($action) || $can->contains('*');
     }
 
-
     public function getAuthorizationsAttribute(): Collection
     {
         $role = $this->getAttribute('role');
