@@ -14,6 +14,9 @@ class WildcardAuthorization
     const PART_DELIMITER = '-';
 
     /** @var string */
+    const SUBPART_DELIMITER = ',';
+
+    /** @var string */
     protected string $authorization;
 
     /** @var Collection */
@@ -89,7 +92,7 @@ class WildcardAuthorization
     }
 
     /**
-     * Sets the different parts from authorization string.
+     * Sets the different parts & subParts from authorization string.
      *
      * @return void
      * @throws Exception
@@ -100,7 +103,17 @@ class WildcardAuthorization
             throw new Exception('Bad Authorization Formatting: ' . $this->authorization);
         }
 
-        $this->parts->add(collect(explode(self::PART_DELIMITER, $this->authorization)));
+        $parts = collect(explode(self::PART_DELIMITER, $this->authorization));
+
+        $parts->each(function ($item, $key) {
+            $subParts = collect(explode(self::SUBPART_DELIMITER, $item));
+
+            if ($subParts->isEmpty() || $subParts->contains('')) {
+                throw new Exception('Bad Authorization Formatting: ' . $this->authorization);
+            }
+
+            $this->parts->add($subParts);
+        });
 
         if ($this->parts->isEmpty()) {
             throw new Exception('Bad Authorization Formatting: ' . $this->authorization);
