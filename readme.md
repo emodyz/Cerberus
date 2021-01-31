@@ -1,5 +1,7 @@
 # Cerberus
 
+#### Based on [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
+
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
