@@ -11,7 +11,6 @@ trait HasAuthorizations
     public function checkAuthorizationTo(string $action): bool
     {
         foreach ($this->getAuthorizationsAttribute() as $userPermission) {
-
             $userPermission = new WildcardAuthorization($userPermission);
 
             if ($userPermission->implies($action)) {
