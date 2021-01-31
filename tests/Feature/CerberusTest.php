@@ -8,7 +8,6 @@ use Tests\TestCase;
 
 class CerberusTest extends TestCase
 {
-
     use RefreshDatabase;
 
     /***
@@ -17,7 +16,7 @@ class CerberusTest extends TestCase
     public function test_that_permissions_are_properly_registered()
     {
         $user = User::factory()->create([
-            'role' => 'admin'
+            'role' => 'admin',
         ]);
 
         $this->actingAs($user);

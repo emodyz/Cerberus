@@ -22,7 +22,6 @@ trait HasAuthorizations
         return false;
     }
 
-
     public function getAuthorizationsAttribute(): Collection
     {
         $role = $this->getAttribute('role');
